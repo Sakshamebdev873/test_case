@@ -42,7 +42,7 @@ app.post("/summaries", async (req, res) => {
       contents += `\n--- ${f.name} ---\n${fileContent}`;
     }
 
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
     const aiRes = await model.generateContent(`Generate concise test case summaries for the following files:\n${contents}`);
     res.json({ summaries: aiRes.response.text() });
   } catch (err) {
